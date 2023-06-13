@@ -8,9 +8,6 @@
     case "dashboard":
       include "pages/admin/index.php";
       break;
-    case "login":
-      include "pages/auth/login.php";
-      break;
     default:
       include "pages/admin/index.php";
   }

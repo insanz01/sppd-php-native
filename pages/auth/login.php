@@ -59,7 +59,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="button" onclick="login(this)" class="btn btn-primary btn-block">Sign In</button>
+            <button type="button" onclick="login()" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -81,7 +81,7 @@
           bodyFormData.append("username", data.username);
           bodyFormData.append("password", data.password);
 
-          return await axios.post("http://localhost/harpan/api/login.api.php", {
+          return await axios.post("<?= $base_url ?>api/login.api.php", {
             username: data.username,
             password: data.password
           }, {
@@ -91,7 +91,7 @@
           }).then(res => res.data);
         }
 
-        const login = async (e) => {
+        const login = async () => {
           const username = document.getElementById("username").value;
           const password = document.getElementById("password").value;
 
@@ -109,6 +109,12 @@
             window.location.href = "<?= $base_url ?>index.php?page=dashboard";
           }
         }
+
+        document.onkeydown = (e) => {
+          if(e.code == "Enter") {
+            login()
+          }
+        };
       </script>
 </body>
 </html>
