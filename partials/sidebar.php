@@ -47,6 +47,33 @@
           </li>
           <li class="nav-header">MASTER DATA</li>
           <li class="nav-item">
+            <a href="?page=dashboard" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Data Harga Eceran
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="?page=dashboard" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Data Harga Grosir
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="?page=dashboard" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Data Harga Nasional
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="?page=logout" class="nav-link">
               <i class="nav-icon fas fa-power-off"></i>
               <p>
