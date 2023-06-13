@@ -1,4 +1,6 @@
 <?php
+  include "config/config.php";
+  
   $role_user = "";
   if(isset($_SESSION["SESS_HARPAN_ROLE"])) {
     $role_user = $_SESSION["SESS_HARPAN_ROLE"];
