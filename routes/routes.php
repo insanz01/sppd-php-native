@@ -4,11 +4,6 @@
     $page = $_GET["page"];
   }
 
-  // if($page == "logout") {
-  //   session_destroy();
-  //   header("location:index.php?page=login");
-  // }
-
   switch($page) {
     case "dashboard":
       include "pages/admin/index.php";

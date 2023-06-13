@@ -1,3 +1,7 @@
+<?php
+  include "config/config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +106,7 @@
 
           if(result.status == true) {
             console.log(result);
-            window.location.href = "http://localhost/harpan/index.php?page=dashboard";
+            window.location.href = "<?= $base_url ?>index.php?page=dashboard";
           }
         }
       </script>
