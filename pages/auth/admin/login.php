@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-
+  
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -103,8 +103,6 @@
       };
 
       const result = await doLogin(data);
-
-      console.log(result);
 
       if(result.status == true) {
         console.log(result);

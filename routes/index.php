@@ -13,6 +13,16 @@
       include "pages/auth/login.php";
       $is_login = true;
     }
+
+    if($_GET["page"] == "login-pimpinan") {
+      include "pages/auth/pimpinan/login.php";
+      $is_login = true;
+    }
+
+    if($_GET["page"] == "login-administrator") {
+      include "pages/auth/admin/login.php";
+      $is_login = true;
+    }
   }
   
   if(!$is_login) {

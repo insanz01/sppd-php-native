@@ -22,4 +22,4 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-json($data, "success");
+to_json($data);

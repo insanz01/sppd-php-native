@@ -47,43 +47,93 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <?php if($role_id == 0): ?>
-          <li class="nav-item">
-            <a href="?page=harga-publik" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>
-                Dashboard
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="?page=stok-publik" class="nav-link">
-              <i class="nav-icon fas fa-box"></i>
-              <p>
-                Data Stok
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="?page=agenda-publik" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Agenda Pasar Murah
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+            <!-- <li class="nav-item">
+              <a href="?page=harga-publik" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-home nav-icon"></i>
+                <p>
+                  Dashboard
+                  <!-- <i class="fas fa-angle-left right"></i> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="?page=harga-eceran-publik" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Harga Eceran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=harga-grosir-publik" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Harga Grosir</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=harga-nasional-publik" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Harga Nasional</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="?page=stok-publik" class="nav-link">
+                <i class="nav-icon fas fa-box"></i>
+                <p>
+                  Data Stok
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?page=agenda-publik" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                  Agenda Pasar Murah
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
 
-          <li class="nav-item">
-            <a href="?page=login" class="nav-link">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Login
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-power-off nav-icon"></i>
+                <p>
+                  Login
+                  <!-- <i class="fas fa-angle-left right"></i> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="?page=login-administrator" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login Administrator</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=login-pimpinan" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login Pimpinan</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item">
+              <a href="?page=login" class="nav-link">
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>
+                  Login
+                </p>
+              </a>
+            </li> -->
           <?php endif; ?>
 
           <?php if($role_id != 0): ?>

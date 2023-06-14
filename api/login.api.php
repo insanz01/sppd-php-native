@@ -1,10 +1,13 @@
 <?php
+
 session_start();
+
 include "../helper/helper.php";
+include "../helper/validate.php";
 include "../database/db.php";
 
-$username = $_POST["username"];
-$password = $_POST["password"];
+$username = validate_input($connection, $_POST["username"]);
+$password = validate_input($connection, $_POST["password"]);
 
 $query = "SELECT id_admin, username, id_role FROM tb_admin WHERE username = '$username' AND password = '$password'";
 
@@ -23,6 +26,10 @@ if ($result->num_rows > 0) {
 
   $data['username'] = $username;
   $data['role_id'] = ($row['id_role'] == 1) ? "Pimpinan" : "Administrator";
+  
+  to_json($data);
+  return;
 }
 
-json($data, "success");
+to_json($data, false, "invalid username and password");
+

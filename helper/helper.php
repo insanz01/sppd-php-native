@@ -1,8 +1,8 @@
 <?php
 
-function json($data, $msg = "success") {
+function to_json($data, $is_success = true, $msg = "success") {
   $response = [
-    "status" => true,
+    "status" => $is_success,
     "message" => $msg,
     "data" => $data
   ];

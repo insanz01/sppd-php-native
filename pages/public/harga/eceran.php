@@ -7,7 +7,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Stok Barang</li>
+          <li class="breadcrumb-item active">Harga Eceran</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -28,14 +28,14 @@
 
     <div class="row pt-4">
       <div class="col-12">
-        <h3>Stok Barang</h3>
+        <h3>Harga Eceran</h3>
         <table class="table table-striped">
           <thead>
             <tr>
               <th>#</th>
               <th>Nama Komoditi</th>
               <th>Satuan</th>
-              <th>Stok</th>
+              <th>Harga</th>
               <th>Tanggal</th>
             </tr>
           </thead>
@@ -44,14 +44,14 @@
               <td>1</td>
               <td>Beras Banjar Super</td>
               <td>Kg</td>
-              <td>14</td>
+              <td>14000</td>
               <td>2023-02-08</td>
             </tr>
             <tr>
               <td>2</td>
               <td>Telur</td>
               <td>Butir</td>
-              <td>15</td>
+              <td>1500</td>
               <td>2023-02-06</td>
             </tr>
           </tbody>
@@ -59,6 +59,42 @@
       </div>
     </div>
     <!-- Main row -->
-
+    <div class="row">
+      <div class="col-12">
+        <canvas height="100px" id="hargaChart"></canvas>
+      </div>
+    </div>
+    <!-- /.row (main row) -->
   </div><!-- /.container-fluid -->
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+  window.addEventListener('load', () => {
+    const ctx = document.getElementById('hargaChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu', ''],
+        datasets: [{
+          label: '# Harga Eceran',
+          data: [0, 12, 19, 3, 5, 2, 3, 10, 0],
+          borderWidth: 1,
+          borderColor: '#36A2EB',
+          // backgroundColor: '#9BD0F5',
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+  })
+</script>
