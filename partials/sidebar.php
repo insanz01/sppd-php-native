@@ -1,7 +1,7 @@
 <?php
   // session_start();
   $role_id = 0;
-  $role_name = "Masyarakat";
+  $role_name = "Publik";
 
   if(isset($_SESSION["SESS_HARPAN_ROLE_ID"])) {
     $role_id = $_SESSION["SESS_HARPAN_ROLE_ID"];
