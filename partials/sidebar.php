@@ -86,7 +86,7 @@
           </li>
           <?php endif; ?>
 
-          <?php if($role_id == 1): ?>
+          <?php if($role_id != 0): ?>
             <li class="nav-item">
               <a href="?page=dashboard" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
