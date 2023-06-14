@@ -1,9 +1,11 @@
 <?php
   // session_start();
   $role_id = 0;
+  $role_name = "Masyarakat";
 
   if(isset($_SESSION["SESS_HARPAN_ROLE_ID"])) {
     $role_id = $_SESSION["SESS_HARPAN_ROLE_ID"];
+    $role_name = $_SESSION["SESS_HARPAN_ROLE"];
   }
 ?>
 
@@ -23,7 +25,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block"><?= $role_name ?></a>
         </div>
       </div>
 
@@ -72,6 +74,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="?page=login" class="nav-link">
+              <i class="nav-icon fas fa-power-off"></i>
+              <p>
+                Login
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
           <?php endif; ?>
 
           <?php if($role_id == 1): ?>
@@ -84,9 +96,9 @@
                 </p>
               </a>
             </li>
-            <li class="nav-header">MASTER DATA</li>
+            <li class="nav-header">MASTER DATA HARGA</li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=eceran" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Harga Eceran
@@ -107,6 +119,26 @@
               <a href="?page=dashboard" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
+                  Data Harga Nasional
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?page=dashboard" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Data Harga Distributor
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-header">MASTER DATA</li>
+            <li class="nav-item">
+              <a href="?page=dashboard" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
                   Data Stok
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
@@ -116,11 +148,22 @@
               <a href="?page=dashboard" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
-                  Data Harga Nasional
+                  Data Permintaan
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="?page=dashboard" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Data Inflasi
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-header">LAINNYA</li>
             <li class="nav-item">
               <a href="?page=logout" class="nav-link">
                 <i class="nav-icon fas fa-power-off"></i>
