@@ -1,5 +1,6 @@
 <?php
 
+include "../helper/helper.php";
 include "../database/db.php";
 
 $query = "SELECT id_produsen, harga_produsen, tanggal_produsen FROM tb_harga_produsen";
@@ -21,10 +22,4 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-$response = [
-  "status" => true,
-  "message" => "success",
-  "data" => $data
-];
-
-echo json_encode($response, JSON_PRETTY_PRINT);
+json($data, "success");

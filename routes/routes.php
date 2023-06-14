@@ -6,10 +6,24 @@
 
   switch($page) {
     case "dashboard":
-      include "pages/admin/index.php";
+      if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
+        include "pages/public/index.php";
+      } else {
+        include "pages/admin/index.php";
+      }
+      break;
+    case "harga-publik":
+      include "pages/public/index.php";
+      break;
+    case "stok-publik":
+      include "pages/public/stok.php";
       break;
     default:
-      include "pages/admin/index.php";
+      if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
+        include "pages/public/index.php";
+      } else {
+        include "pages/admin/index.php";
+      }
   }
 
 ?>

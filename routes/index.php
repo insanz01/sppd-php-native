@@ -8,7 +8,12 @@
   }
 
   if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
-    include "pages/auth/login.php";
+    // include "pages/auth/login.php";
+    include "partials/header.php";
+    include "partials/topbar.php";
+    include "partials/sidebar.php";
+    include "routes.php";
+    include "partials/footer.php";
   } else {
     if($_SESSION["SESS_HARPAN_LOGIN"] == true) {
       include "partials/header.php";
