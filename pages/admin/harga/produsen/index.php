@@ -11,7 +11,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Eceran</li>
+          <li class="breadcrumb-item active">Produsen</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -76,7 +76,7 @@
 
 <script>
   const loadData = async () => {
-    return await axios.get(`<?= $base_url ?>/api/admin-eceran.api.php`).then(res => res.data);
+    return await axios.get(`<?= $base_url ?>/api/admin-produsen.api.php`).then(res => res.data);
   }
 
   const renderTable = (data) => {

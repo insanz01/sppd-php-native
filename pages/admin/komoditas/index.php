@@ -10,8 +10,8 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Eceran</li>
+          <li class="breadcrumb-item"><a href="#">Komoditas</a></li>
+          <li class="breadcrumb-item active">Komoditas</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -42,7 +42,7 @@
             <i class="fas fa-fw fa-print"></i>
             Cetak
           </a>
-          <a href="?page=eceran&action=tambah" class="btn btn-success float-right mx-2" role="button">
+          <a href="?page=komoditas&action=tambah" class="btn btn-success float-right mx-2" role="button">
             <i class="fas fa-fw fa-plus"></i>
             Tambah
           </a>
@@ -59,13 +59,40 @@
               <th>#</th>
               <th>Nama Komoditi</th>
               <th>Satuan</th>
-              <th>Harga</th>
-              <th>Tanggal</th>
-              <th>Opsi</th>
+              <th class="text-right">Opsi</th>
             </tr>
           </thead>
           <tbody id="tabel-harga">
-
+            <tr>
+              <td>1</td>
+              <td>Beras Banjar Super</td>
+              <td>Kg</td>
+              <td>
+                <a href="#" class="btn btn-primary" role="button">
+                  <i class="fas fa-fw fa-edit"></i>
+                  Ubah
+                </a>
+                <a href="#" class="btn btn-danger" role="button">
+                  <i class="fas fa-fw fa-delete"></i>
+                  Hapus
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Telur</td>
+              <td>Butir</td>
+              <td>
+                <a href="#" class="btn btn-primary" role="button">
+                  <i class="fas fa-fw fa-edit"></i>
+                  Ubah
+                </a>
+                <a href="#" class="btn btn-danger" role="button">
+                  <i class="fas fa-fw fa-delete"></i>
+                  Hapus
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -76,7 +103,7 @@
 
 <script>
   const loadData = async () => {
-    return await axios.get(`<?= $base_url ?>/api/admin-eceran.api.php`).then(res => res.data);
+    return await axios.get(`<?= $base_url ?>/api/komoditas.api.php`).then(res => res.data);
   }
 
   const renderTable = (data) => {
@@ -90,8 +117,6 @@
                 <td>${index + 1}</td>
                 <td>${res.nama}</td>
                 <td>${res.satuan}</td>
-                <td>${res.harga}</td>
-                <td>${res.created_at}</td>
                 <td>
                   <a href="#" class="btn btn-danger float-right" role="button">
                     <i class="fas fa-fw fa-trash"></i>

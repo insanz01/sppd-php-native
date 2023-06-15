@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Harga Eceran</h1>
+        <h1 class="m-0">Harga Distributor</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Tambah Eceran</li>
+          <li class="breadcrumb-item active">Tambah Distributor</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -54,7 +54,7 @@
 
 <script>
   const saveData = async (data) => {
-    return await axios.post(`<?= $base_url ?>api/add-eceran.api.php`, data, {
+    return await axios.post(`<?= $base_url ?>api/add-distributor.api.php`, data, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
@@ -81,7 +81,7 @@
     const result = await saveData(data);
 
     if(result.status) {
-      window.location.href = "<?= $base_url ?>index.php?page=eceran"
+      window.location.href = "<?= $base_url ?>index.php?page=distributor"
     }
   }
 

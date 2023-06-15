@@ -157,7 +157,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=grosir" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Harga Grosir
@@ -166,7 +166,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=nasional" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Harga Nasional
@@ -175,7 +175,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=distributor" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Harga Distributor
@@ -183,8 +183,26 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="?page=produsen" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Data Harga Produsen
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
 
             <li class="nav-header">MASTER DATA</li>
+            <li class="nav-item">
+              <a href="?page=komoditas" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Data Komoditas
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="?page=dashboard" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>

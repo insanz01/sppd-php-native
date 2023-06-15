@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Harga Eceran</h1>
+        <h1 class="m-0">Komoditas</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Tambah Eceran</li>
+          <li class="breadcrumb-item"><a href="#">Komoditas</a></li>
+          <li class="breadcrumb-item active">Tambah Komoditas</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -29,20 +29,20 @@
           <div class="card-body">
             <div class="form-group">
               <label for="">Nama Komoditi</label>
-              <select name="id_komoditas" class="form-control" id="id_komoditas">
-                <option value="">- PILIH -</option>
-              </select>
+              <input type="text" class="form-control" placeholder="misal: telur" id="nama">
             </div>
             <div class="form-group">
-              <label for="">Harga</label>
-              <input type="number" class="form-control" id="harga">
+              <label for="">Satuan</label>
+              <select name="satuan" class="form-control" id="id_satuan">
+                <option value="">- PILIH SATUAN -</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="">Tanggal</label>
               <input type="date" class="form-control" value="<?= date('Y-m-d', time()) ?>" readonly id="tanggal">
             </div>
             <div class="form-group">
-              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Harga Eceran</button>
+              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Komoditas</button>
             </div>
           </div>
         </div>
@@ -54,25 +54,29 @@
 
 <script>
   const saveData = async (data) => {
-    return await axios.post(`<?= $base_url ?>api/add-eceran.api.php`, data, {
+    return await axios.post(`<?= $base_url ?>api/add-komoditas.api.php`, {
+      nama: data.nama,
+      id_satuan: data.id_satuan,
+      tanggal: data.tanggal,
+    },{
       headers: {
         "Content-Type": "multipart/form-data"
       }
     }).then(res => res.data);
   }
 
-  const loadKomoditas = async () => {
-    return await axios.get(`<?= $base_url ?>api/komoditas.api.php`).then(res => res.data);
+  const loadSatuan = async () => {
+    return await axios.get(`<?= $base_url ?>api/satuan.api.php`).then(res => res.data);
   }
 
   const submitData = async () => {
-    const harga = document.getElementById("harga").value;
-    const id_komoditas = document.getElementById("id_komoditas").value;
+    const nama = document.getElementById("nama").value;
+    const id_satuan = document.getElementById("id_satuan").value;
     const tanggal = document.getElementById("tanggal").value;
 
     const data = {
-      harga,
-      id_komoditas,
+      nama,
+      id_satuan,
       tanggal
     }
 
@@ -81,7 +85,7 @@
     const result = await saveData(data);
 
     if(result.status) {
-      window.location.href = "<?= $base_url ?>index.php?page=eceran"
+      window.location.href = "<?= $base_url ?>index.php?page=komoditas"
     }
   }
 
@@ -98,10 +102,12 @@
   }
 
   window.addEventListener('load', async () => {
-    const komoditiResult = await loadKomoditas();
+    const result = await loadSatuan();
 
-    if(komoditiResult.status) {
-      await renderSelectOption('id_komoditas', komoditiResult.data);
+    console.log(result);
+
+    if(result.status) {
+      await renderSelectOption('id_satuan', result.data);
     }
   })
 </script>
