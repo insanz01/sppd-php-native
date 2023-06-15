@@ -10,8 +10,8 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Nasional</li>
+          <li class="breadcrumb-item"><a href="#">Komoditas</a></li>
+          <li class="breadcrumb-item active">Stok</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -42,7 +42,7 @@
             <i class="fas fa-fw fa-print"></i>
             Cetak
           </a>
-          <a href="?page=nasional&action=tambah" class="btn btn-success float-right mx-2" role="button">
+          <a href="?page=eceran&action=tambah" class="btn btn-success float-right mx-2" role="button">
             <i class="fas fa-fw fa-plus"></i>
             Tambah
           </a>
@@ -59,12 +59,12 @@
               <th>#</th>
               <th>Nama Komoditi</th>
               <th>Satuan</th>
-              <th>Harga</th>
+              <th>Stok</th>
               <th>Tanggal</th>
               <th>Opsi</th>
             </tr>
           </thead>
-          <tbody id="tabel-harga">
+          <tbody id="tabel-stok">
 
           </tbody>
         </table>
@@ -76,11 +76,11 @@
 
 <script>
   const loadData = async () => {
-    return await axios.get(`<?= $base_url ?>/api/admin-nasional.api.php`).then(res => res.data);
+    return await axios.get(`<?= $base_url ?>/api/admin-stok.api.php`).then(res => res.data);
   }
 
   const renderTable = (data) => {
-    const target = document.getElementById('tabel-harga');
+    const target = document.getElementById('tabel-stok');
 
     let temp = ``;
 
@@ -90,7 +90,7 @@
                 <td>${index + 1}</td>
                 <td>${res.nama}</td>
                 <td>${res.satuan}</td>
-                <td>${res.harga}</td>
+                <td>${res.stok}</td>
                 <td>${res.created_at}</td>
                 <td>
                   <a href="#" class="btn btn-danger float-right" role="button">

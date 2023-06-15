@@ -42,7 +42,7 @@
             <i class="fas fa-fw fa-print"></i>
             Cetak
           </a>
-          <a href="?page=eceran&action=tambah" class="btn btn-success float-right mx-2" role="button">
+          <a href="?page=grosir&action=tambah" class="btn btn-success float-right mx-2" role="button">
             <i class="fas fa-fw fa-plus"></i>
             Tambah
           </a>

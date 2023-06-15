@@ -7,7 +7,7 @@ function validate_input($conn, $data) {
   return $str;
 }
 
-function validateEmail($email) {
+function validate_email($email) {
   // Regular expression for a valid email address
   $regex = '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}$/';
 

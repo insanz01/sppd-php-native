@@ -77,6 +77,13 @@
         include "pages/admin/harga/produsen/index.php";
       }
       break;
+    case "stok":
+      if($action == "tambah") {
+        include "pages/admin/stok/tambah.php";
+      } else {
+        include "pages/admin/stok/index.php";
+      }
+      break;
     default:
       if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
         include "pages/public/index.php";

@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Harga Nasional</h1>
+        <h1 class="m-0">Harga Produsen</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Tambah Nasional</li>
+          <li class="breadcrumb-item active">Tambah Produsen</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -34,15 +34,15 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="">Harga</label>
-              <input type="number" class="form-control" id="harga">
+              <label for="">Stok</label>
+              <input type="number" class="form-control" id="stok">
             </div>
             <div class="form-group">
               <label for="">Tanggal</label>
               <input type="date" class="form-control" value="<?= date('Y-m-d', time()) ?>" readonly id="tanggal">
             </div>
             <div class="form-group">
-              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Harga Nasional</button>
+              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Stok</button>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
 
 <script>
   const saveData = async (data) => {
-    return await axios.post(`<?= $base_url ?>api/add-nasional.api.php`, data, {
+    return await axios.post(`<?= $base_url ?>api/add-stok.api.php`, data, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
@@ -66,12 +66,12 @@
   }
 
   const submitData = async () => {
-    const harga = document.getElementById("harga").value;
+    const stok = document.getElementById("stok").value;
     const id_komoditas = document.getElementById("id_komoditas").value;
     const tanggal = document.getElementById("tanggal").value;
 
     const data = {
-      harga,
+      stok,
       id_komoditas,
       tanggal
     }
@@ -81,7 +81,7 @@
     const result = await saveData(data);
 
     if(result.status) {
-      window.location.href = "<?= $base_url ?>index.php?page=nasional"
+      window.location.href = "<?= $base_url ?>index.php?page=stok"
     }
   }
 

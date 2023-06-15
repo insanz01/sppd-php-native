@@ -42,7 +42,7 @@
               <input type="date" class="form-control" value="<?= date('Y-m-d', time()) ?>" readonly id="tanggal">
             </div>
             <div class="form-group">
-              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Harga Eceran</button>
+              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Harga Produsen</button>
             </div>
           </div>
         </div>
