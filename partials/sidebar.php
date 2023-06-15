@@ -213,7 +213,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=permintaan" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Permintaan
@@ -222,7 +222,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
+              <a href="?page=inflasi" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   Data Inflasi

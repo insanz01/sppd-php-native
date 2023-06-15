@@ -84,6 +84,20 @@
         include "pages/admin/stok/index.php";
       }
       break;
+    case "permintaan":
+      if($action == "tambah") {
+        include "pages/admin/permintaan/tambah.php";
+      } else {
+        include "pages/admin/permintaan/index.php";
+      }
+      break;
+    case "inflasi":
+      if($action == "tambah") {
+        include "pages/admin/inflasi/tambah.php";
+      } else {
+        include "pages/admin/inflasi/index.php";
+      }
+      break;
     default:
       if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
         include "pages/public/index.php";
