@@ -1,3 +1,7 @@
+<?php
+  include "config/config.php";
+?>
+
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
@@ -25,26 +29,20 @@
           <div class="card-body">
             <div class="form-group">
               <label for="">Nama Komoditi</label>
-              <input type="text" class="form-control" placeholder="misal: telur">
+              <input type="text" class="form-control" placeholder="misal: telur" id="nama">
             </div>
             <div class="form-group">
               <label for="">Satuan</label>
-              <select name="satuan" id="satuan" class="form-control">
-                <option value="Kg">Kg</option>
-                <option value="Butir">Butir</option>
-                <option value="Pcs">Pcs</option>
+              <select name="satuan" class="form-control" id="id_satuan">
+                <option value="">- PILIH SATUAN -</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="">Harga</label>
-              <input type="number" min="0" class="form-control">
-            </div>
-            <div class="form-group">
               <label for="">Tanggal</label>
-              <input type="date" class="form-control" value="<?= date('Y-m-d', time()) ?>" readonly>
+              <input type="date" class="form-control" value="<?= date('Y-m-d', time()) ?>" readonly id="tanggal">
             </div>
             <div class="form-group">
-              <button class="btn btn-success btn-block">Simpan Data Komoditas</button>
+              <button class="btn btn-success btn-block" type="button" role="button" onclick="submitData()">Simpan Data Komoditas</button>
             </div>
           </div>
         </div>
@@ -53,3 +51,63 @@
     <!-- /.row -->
   </div><!-- /.container-fluid -->
 </section>
+
+<script>
+  const saveData = async (data) => {
+    return await axios.post(`<?= $base_url ?>api/add-komoditas.api.php`, {
+      nama: data.nama,
+      id_satuan: data.id_satuan,
+      tanggal: data.tanggal,
+    },{
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then(res => res.data);
+  }
+
+  const loadSatuan = async () => {
+    return await axios.get(`<?= $base_url ?>api/satuan.api.php`).then(res => res.data);
+  }
+
+  const submitData = async () => {
+    const nama = document.getElementById("nama").value;
+    const id_satuan = document.getElementById("id_satuan").value;
+    const tanggal = document.getElementById("tanggal").value;
+
+    const data = {
+      nama,
+      id_satuan,
+      tanggal
+    }
+
+    console.log(data);
+
+    const result = await saveData(data);
+
+    if(result.status) {
+      window.location.href = "<?= $base_url ?>index.php?page=eceran"
+    }
+  }
+
+  const renderSelectOption = async (target, data) => {
+    const listOpt = document.getElementById(target);
+
+    let temp = `<option value="">- PILIH -</option>`
+
+    data.forEach(res => {
+      temp += `<option value="${res.id}">${res.nama}</option>`
+    });
+
+    listOpt.innerHTML = temp;
+  }
+
+  window.addEventListener('load', async () => {
+    const result = await loadSatuan();
+
+    console.log(result);
+
+    if(result.status) {
+      await renderSelectOption('id_satuan', result.data);
+    }
+  })
+</script>

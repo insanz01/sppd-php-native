@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "pangan_pokok_pasar";
+$dbname = "harga_pangan";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connection) {

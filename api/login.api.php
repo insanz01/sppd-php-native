@@ -9,6 +9,8 @@ include "../database/db.php";
 $username = validate_input($connection, $_POST["username"]);
 $password = validate_input($connection, $_POST["password"]);
 
+$password = password_hash($password, PASSWORD_DEFAULT);
+
 $query = "SELECT id_admin, username, id_role FROM tb_admin WHERE username = '$username' AND password = '$password'";
 
 $result = mysqli_query($connection, $query);
