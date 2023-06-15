@@ -1,6 +1,12 @@
 <?php
 
 function validate_input($conn, $data) {
+  // Escape all HTML special characters.
+  $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+
+  // Remove all JavaScript code.
+  $data = preg_replace('/<script[^>]*>.*?</script>/', '', $data);
+
   $str = mysqli_real_escape_string($conn, $data);
   $str = addslashes($str);
 
