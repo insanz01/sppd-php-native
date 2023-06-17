@@ -88,7 +88,7 @@
               <a href="?page=stok-publik" class="nav-link">
                 <i class="nav-icon fas fa-box"></i>
                 <p>
-                  Data Stok
+                  Data Ketersediaan
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
@@ -207,7 +207,7 @@
               <a href="?page=stok" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
-                  Data Stok
+                  Data Ketersediaan
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>

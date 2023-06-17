@@ -11,7 +11,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Komoditas</a></li>
-          <li class="breadcrumb-item active">Stok</li>
+          <li class="breadcrumb-item active">Ketersediaan</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
