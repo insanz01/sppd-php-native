@@ -5,7 +5,7 @@ function validate_input($conn, $data) {
   $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
 
   // Remove all JavaScript code.
-  $data = preg_replace('/<script[^>]*>.*?</script>/', '', $data);
+  // $data = preg_replace('/<script[^>]*>.*?</script>/', '', $data);
 
   $str = mysqli_real_escape_string($conn, $data);
   $str = addslashes($str);
