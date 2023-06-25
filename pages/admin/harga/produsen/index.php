@@ -120,8 +120,30 @@
   </div>
 </div>
 
+<!-- Modal Verifikasi -->
+<div class="modal fade" id="verifikasiModal" tabindex="-1" aria-labelledby="verifikasiModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verifikasiModalLabel">Verifikasi Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda ingin verifikasi data ini ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="button" onclick="verifikasiData()" class="btn btn-primary">Verifikasi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   let DELETE_ID = 0;
+  let VERIFIKASI_ID = 0;
 
   const loadData = async () => {
     return await axios.get(`<?= $base_url ?>/api/get-produsen.api.php`).then(res => res.data);
@@ -162,6 +184,33 @@
     }
   }
 
+  const selectVerifikasiData = (verifikasi_id) => {
+    VERIFIKASI_ID = verifikasi_id;
+  }
+
+  const doVerifikasi = async (data) => {
+    return await axios.post(`<?= $base_url ?>/api/approve-produsen.api.php`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then(res => res.data);
+  }
+
+  const verifikasiData = async () => {
+    
+    const data = {
+      id: VERIFIKASI_ID
+    }
+
+    const result = await doVerifikasi(data);
+
+    console.log("verifikasi response :", result);
+
+    if(result) {
+      location.reload();
+    }
+  }
+
   const renderTable = (data) => {
     const target = document.getElementById('tabel-harga');
 
@@ -184,7 +233,7 @@
         if(res.approved_at == null) {
           temp += `
                   <td>
-                    <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                    <a href="#" class="btn btn-primary float-right mx-2" role="button" data-toggle="modal" data-target="#verifikasiModal" onclick="selectVerifikasiData(${res.id})">
                       <i class="fas fa-fw fa-book"></i>
                       Verifikasi
                     </a>
