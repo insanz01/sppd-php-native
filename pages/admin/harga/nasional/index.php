@@ -1,5 +1,10 @@
 <?php
   include "config/config.php";
+
+  $role_id = 0;
+  if(isset($_SESSION["SESS_HARPAN_ROLE_ID"])) {
+    $role_id = $_SESSION["SESS_HARPAN_ROLE_ID"];
+  }
 ?>
 
 <div class="content-header">
@@ -25,20 +30,14 @@
 
     <div class="row py-4">
       <div class="col-4">
-        <div class="form-group">
-          <label for="laporan-periode">Laporan Periode</label>
-          <input type="date" class="form-control">
-        </div>
+
+      </div>
+      <div class="col-4">
+  
       </div>
       <div class="col-4">
         <div class="form-group">
-          <label for="laporan-periode">Laporan Periode</label>
-          <input type="date" class="form-control">
-        </div>    
-      </div>
-      <div class="col-4">
-        <div class="form-group">
-          <a href="#" class="btn btn-info float-right" role="button">
+          <a href="#" class="btn btn-info float-right" role="button" data-toggle="modal" data-target="#cetakModal">
             <i class="fas fa-fw fa-print"></i>
             Cetak
           </a>
@@ -61,7 +60,7 @@
               <th>Satuan</th>
               <th>Harga</th>
               <th>Tanggal</th>
-              <th>Opsi</th>
+              <th class="text-right">Opsi</th>
             </tr>
           </thead>
           <tbody id="tabel-harga">
@@ -74,15 +73,53 @@
   </div><!-- /.container-fluid -->
 </section>
 
+<!-- Modal -->
+<div class="modal fade" id="cetakModal" tabindex="-1" aria-labelledby="cetakModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cetakModalLabel">Cetak Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">Laporan Periode (Tanggal Awal)</label>
+          <input type="date" class="form-control" name="cetak-tanggal-awal">
+        </div>
+        <div class="form-group">
+          <label for="">Laporan Periode (Tanggal Akhir)</label>
+          <input type="date" class="form-control" name="cetak-tanggal-akhir">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="button" onclick="printReport()" class="btn btn-primary">Cetak</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   const loadData = async () => {
     return await axios.get(`<?= $base_url ?>/api/admin-nasional.api.php`).then(res => res.data);
+  }
+
+  const printReport = async () => {
+    const periodeAwal = document.getElementById("cetak-tanggal-awal").value;
+    const periodeAkhir = document.getElementById("cetak-tanggal-akhir").value;
+
+    console.log(periodeAwal);
+    console.log(periodeAkhir);
   }
 
   const renderTable = (data) => {
     const target = document.getElementById('tabel-harga');
 
     let temp = ``;
+
+    let role_id = `<?= $role_id ?>`;
 
     data.forEach((res, index) => {
       temp += `
@@ -92,18 +129,32 @@
                 <td>${res.satuan}</td>
                 <td>${res.harga}</td>
                 <td>${res.created_at}</td>
+                
+            `;
+
+      if(role_id == 1) {
+        temp += `
+                <td>
+                  <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                    <i class="fas fa-fw fa-book"></i>
+                    Verifikasi
+                  </a>
+                </td>
+              </tr>`;
+      } else {
+        temp += `
                 <td>
                   <a href="#" class="btn btn-danger float-right" role="button">
                     <i class="fas fa-fw fa-trash"></i>
                     Hapus
                   </a>
-                  <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                  <a href="?page=nasional&action=edit&id=${res.id}" class="btn btn-primary float-right mx-2" role="button">
                     <i class="fas fa-fw fa-edit"></i>
                     Ubah
                   </a>
                 </td>
-              </tr>
-            `;
+              </tr>`;
+      }
     });
 
     target.innerHTML = temp;

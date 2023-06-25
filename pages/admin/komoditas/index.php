@@ -1,5 +1,10 @@
 <?php
   include "config/config.php";
+
+  $role_id = 0;
+  if(isset($_SESSION["SESS_HARPAN_ROLE_ID"])) {
+    $role_id = $_SESSION["SESS_HARPAN_ROLE_ID"];
+  }
 ?>
 
 <div class="content-header">
@@ -111,24 +116,40 @@
 
     let temp = ``;
 
+    let role_id = `<?= $role_id ?>`;
+
     data.forEach((res, index) => {
       temp += `
               <tr>
                 <td>${index + 1}</td>
                 <td>${res.nama}</td>
                 <td>${res.satuan}</td>
+                
+            `;
+
+      if(role_id == 1) {
+        temp += `
+                <td>
+                  <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                    <i class="fas fa-fw fa-book"></i>
+                    Verifikasi
+                  </a>
+                </td>
+              </tr>`;
+      } else {
+        temp += `
                 <td>
                   <a href="#" class="btn btn-danger float-right" role="button">
                     <i class="fas fa-fw fa-trash"></i>
                     Hapus
                   </a>
-                  <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                  <a href="?page=komoditas&action=edit&id=${res.id}" class="btn btn-primary float-right mx-2" role="button">
                     <i class="fas fa-fw fa-edit"></i>
                     Ubah
                   </a>
                 </td>
-              </tr>
-            `;
+              </tr>`;
+      }
     });
 
     target.innerHTML = temp;

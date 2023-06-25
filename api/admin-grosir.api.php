@@ -3,7 +3,7 @@
 include "../helper/helper.php";
 include "../database/db.php";
 
-$query = "SELECT harga_grosir.id, komoditas.nama, harga_grosir.harga, satuan.nama as satuan, harga_grosir.created_at, harga_grosir.updated_at FROM komoditas JOIN satuan ON komoditas.id_satuan = satuan.id JOIN harga_grosir ON komoditas.id = harga_grosir.id_komoditas";
+$query = "SELECT harga_grosir.id, komoditas.nama, harga_grosir.harga, satuan.nama as satuan, harga_grosir.approved_at, harga_grosir.created_at, harga_grosir.updated_at FROM komoditas JOIN satuan ON komoditas.id_satuan = satuan.id JOIN harga_grosir ON komoditas.id = harga_grosir.id_komoditas";
 
 $result = mysqli_query($connection, $query);
 
@@ -17,6 +17,7 @@ if (mysqli_num_rows($result) > 0) {
       "nama" => $row['nama'],
       "harga" => $row['harga'],
       "satuan" => $row['satuan'],
+      "approved_at" => $row['approved_at'],
       "created_at" => $row['created_at'],
       "updated_at" => $row['updated_at']
     ];

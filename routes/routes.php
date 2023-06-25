@@ -38,6 +38,14 @@
     case "komoditas":
       if($action == "tambah") {
         include "pages/admin/komoditas/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/komoditas/edit.php?id=$id";
+        } else {
+          include "pages/admin/komoditas/index.php";
+        }
       } else {
         include "pages/admin/komoditas/index.php";
       }
@@ -45,6 +53,14 @@
     case "eceran":
       if($action == "tambah") {
         include "pages/admin/harga/eceran/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/harga/eceran/edit.php?id=$id";
+        } else {
+          include "pages/admin/harga/eceran/index.php";
+        }
       } else {
         include "pages/admin/harga/eceran/index.php";
       }
@@ -52,6 +68,14 @@
     case "grosir":
       if($action == "tambah") {
         include "pages/admin/harga/grosir/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/harga/grosir/edit.php?id=$id";
+        } else {
+          include "pages/admin/harga/grosir/index.php";
+        }
       } else {
         include "pages/admin/harga/grosir/index.php";
       }
@@ -59,6 +83,14 @@
     case "nasional":
       if($action == "tambah") {
         include "pages/admin/harga/nasional/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/harga/nasional/edit.php?id=$id";
+        } else {
+          include "pages/admin/harga/nasional/index.php";
+        }
       } else {
         include "pages/admin/harga/nasional/index.php";
       }
@@ -66,6 +98,14 @@
     case "distributor":
       if($action == "tambah") {
         include "pages/admin/harga/distributor/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/harga/distributor/edit.php?id=$id";
+        } else {
+          include "pages/admin/harga/distributor/index.php";
+        }
       } else {
         include "pages/admin/harga/distributor/index.php";
       }
@@ -73,6 +113,14 @@
     case "produsen":
       if($action == "tambah") {
         include "pages/admin/harga/produsen/tambah.php";
+      } else if($action == "edit") {
+        if(isset($_GET["id"])) {
+          $id = $_GET["id"];
+          
+          include "pages/admin/harga/produsen/edit.php?id=$id";
+        } else {
+          include "pages/admin/harga/produsen/index.php";
+        }
       } else {
         include "pages/admin/harga/produsen/index.php";
       }
