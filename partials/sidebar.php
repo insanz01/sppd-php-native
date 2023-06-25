@@ -232,16 +232,15 @@
             </li>
 
             <?php if($role_id == 1): ?>
-              <li class="nav-header">BAGIAN PIMPINAN</li>
+              <!-- <li class="nav-header">BAGIAN PIMPINAN</li>
               <li class="nav-item">
                 <a href="?page=dashboard" class="nav-link">
                   <i class="nav-icon fas fa-book"></i>
                   <p>
                     Verifikasi Data
-                    <!-- <span class="right badge badge-danger">New</span> -->
                   </p>
                 </a>
-              </li>
+              </li> -->
             <?php endif; ?>
 
             <li class="nav-header">LAINNYA</li>

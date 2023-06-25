@@ -108,7 +108,7 @@
 
 <script>
   const loadData = async () => {
-    return await axios.get(`<?= $base_url ?>/api/komoditas.api.php`).then(res => res.data);
+    return await axios.get(`<?= $base_url ?>/api/get-komoditas.api.php`).then(res => res.data);
   }
 
   const renderTable = (data) => {
@@ -128,14 +128,22 @@
             `;
 
       if(role_id == 1) {
-        temp += `
-                <td>
-                  <a href="#" class="btn btn-primary float-right mx-2" role="button">
-                    <i class="fas fa-fw fa-book"></i>
-                    Verifikasi
-                  </a>
-                </td>
-              </tr>`;
+        if(res.approved_at == null) {
+          temp += `
+                  <td>
+                    <a href="#" class="btn btn-primary float-right mx-2" role="button">
+                      <i class="fas fa-fw fa-book"></i>
+                      Verifikasi
+                    </a>
+                  </td>
+                </tr>`;
+        } else {
+          temp += `
+                  <td>
+                    
+                  </td>
+                </tr>`;
+        }
       } else {
         temp += `
                 <td>

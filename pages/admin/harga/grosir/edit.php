@@ -95,13 +95,17 @@
     }
   }
 
-  const renderSelectOption = async (target, data) => {
+  const renderSelectOption = async (target, data, id_komoditas) => {
     const listOpt = document.getElementById(target);
 
     let temp = `<option value="">- PILIH -</option>`
 
     data.forEach(res => {
-      temp += `<option value="${res.id}">${res.nama}</option>`
+      if(id_komoditas == res.id) {
+        temp += `<option value="${res.id}" selected>${res.nama}</option>`
+      } else {
+        temp += `<option value="${res.id}">${res.nama}</option>`
+      }
     });
 
     listOpt.innerHTML = temp;
@@ -131,11 +135,13 @@
 
   window.addEventListener('load', async () => {
     const komoditiResult = await loadKomoditas();
+    const result = await getData();
 
-    if(komoditiResult.status) {
-      await renderSelectOption('id_komoditas', komoditiResult.data);
+    if(komoditiResult.status && result.status) {
+      await renderSelectOption('id_komoditas', komoditiResult.data, result.data[0].id_komoditas);
+
+      setValue("id_edit", result.data[0].id);
+      setValue("harga", result.data[0].harga);
     }
-
-    await showData();
   })
 </script>

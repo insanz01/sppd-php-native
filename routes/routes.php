@@ -42,7 +42,7 @@
         if(isset($_GET["id"])) {
           $id = $_GET["id"];
           
-          include "pages/admin/komoditas/edit.php?id=$id";
+          include "pages/admin/komoditas/edit.php";
         } else {
           include "pages/admin/komoditas/index.php";
         }
@@ -55,9 +55,9 @@
         include "pages/admin/harga/eceran/tambah.php";
       } else if($action == "edit") {
         if(isset($_GET["id"])) {
-          $id = $_GET["id"];
+          // $_GET["id"];
           
-          include "pages/admin/harga/eceran/edit.php?id=$id";
+          include "pages/admin/harga/eceran/edit.php";
         } else {
           include "pages/admin/harga/eceran/index.php";
         }
@@ -72,7 +72,7 @@
         if(isset($_GET["id"])) {
           $id = $_GET["id"];
           
-          include "pages/admin/harga/grosir/edit.php?id=$id";
+          include "pages/admin/harga/grosir/edit.php";
         } else {
           include "pages/admin/harga/grosir/index.php";
         }
@@ -87,7 +87,7 @@
         if(isset($_GET["id"])) {
           $id = $_GET["id"];
           
-          include "pages/admin/harga/nasional/edit.php?id=$id";
+          include "pages/admin/harga/nasional/edit.php";
         } else {
           include "pages/admin/harga/nasional/index.php";
         }
@@ -102,7 +102,7 @@
         if(isset($_GET["id"])) {
           $id = $_GET["id"];
           
-          include "pages/admin/harga/distributor/edit.php?id=$id";
+          include "pages/admin/harga/distributor/edit.php";
         } else {
           include "pages/admin/harga/distributor/index.php";
         }
@@ -117,7 +117,7 @@
         if(isset($_GET["id"])) {
           $id = $_GET["id"];
           
-          include "pages/admin/harga/produsen/edit.php?id=$id";
+          include "pages/admin/harga/produsen/edit.php";
         } else {
           include "pages/admin/harga/produsen/index.php";
         }

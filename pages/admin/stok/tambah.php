@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Harga Produsen</h1>
+        <h1 class="m-0">Stok Komoditas</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Harga</a></li>
-          <li class="breadcrumb-item active">Tambah Produsen</li>
+          <li class="breadcrumb-item"><a href="#">Komoditas</a></li>
+          <li class="breadcrumb-item active">Tambah Stok</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->

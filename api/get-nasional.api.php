@@ -3,12 +3,12 @@
 include "../helper/helper.php";
 include "../database/db.php";
 
-$query = "SELECT harga_nasional.id, harga_nasional.harga, komoditas.nama as komoditas, harga_nasional.approved_at, harga_nasional.created_at, harga_nasional.updated_at FROM harga_nasional JOIN komoditas ON harga_nasional.id_komoditas = komoditas.id WHERE harga_nasional.deleted_at is NULL";
+$query = "SELECT harga_nasional.id, harga_nasional.harga, komoditas.id as id_komoditas, komoditas.nama as komoditas, satuan.nama as satuan, harga_nasional.approved_at, harga_nasional.created_at, harga_nasional.updated_at FROM harga_nasional JOIN komoditas ON harga_nasional.id_komoditas = komoditas.id JOIN satuan ON komoditas.id_satuan = satuan.id WHERE harga_nasional.deleted_at is NULL";
 
 if(isset($_GET["id"])) {
   $id = $_GET["id"];
 
-  $query = "SELECT harga_nasional.id, harga_nasional.harga, komoditas.nama as komoditas, harga_nasional.approved_at, harga_nasional.created_at, harga_nasional.updated_at FROM harga_nasional JOIN komoditas ON harga_nasional.id_komoditas = komoditas.id WHERE harga_nasional.deleted_at is NULL AND harga_nasional.id = $id";
+  $query = "SELECT harga_nasional.id, harga_nasional.harga, komoditas.id as id_komoditas, komoditas.nama as komoditas, satuan.nama as satuan, harga_nasional.approved_at, harga_nasional.created_at, harga_nasional.updated_at FROM harga_nasional JOIN komoditas ON harga_nasional.id_komoditas = komoditas.id JOIN satuan ON komoditas.id_satuan = satuan.id WHERE harga_nasional.deleted_at is NULL AND harga_nasional.id = $id";
 }
 
 $result = mysqli_query($connection, $query);
@@ -20,8 +20,10 @@ if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     $temp_data = [
       "id" => $row['id'],
-      "komoditas" => $row['komoditas'],
+      "id_komoditas" => $row['id_komoditas'],
+      "nama" => $row['komoditas'],
       "harga" => $row['harga'],
+      "satuan" => $row['satuan'],
       "approved_at" => $row['approved_at'],
       "created_at" => $row['created_at'],
       "updated_at" => $row['updated_at']
