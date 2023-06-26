@@ -80,7 +80,7 @@
 <script>
 
   const saveData = async (data) => {
-    return await axios.post(`<?= $base_url ?>api/spt.api.php?todo=save`, data, {
+    return await axios.post(`<?= $base_url ?>api/spt.api.php?todo=save-pengajuan`, data, {
       headers: {
         "Content-Type": "multipart/form-data"
       }

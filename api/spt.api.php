@@ -17,6 +17,7 @@ function get_all_spt($connection) {
     while($row = mysqli_fetch_assoc($result)) {
       $temp_data = [
         "id" => $row["id"],
+        "hash_id" => $row["hash_id"],
         "nomor_sppd" => $row["nomor_sppd"],
         "nip_karyawan" => $row["nip_karyawan"],
         "nama_karyawan" => $row["nama_karyawan"],
@@ -70,7 +71,7 @@ if(isset($_GET["todo"])) {
     case "find_all":
       get_all_karyawan($connection);
       break;
-    case "save":
+    case "save-pengajuan":
       $insertData = [
         "nomor_sppd" => validate_input($connection, $_POST["nomor_sppd"]),
         "nip_karyawan" => validate_input($connection, $_POST["nip_karyawan"]),
