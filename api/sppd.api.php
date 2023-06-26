@@ -62,6 +62,7 @@ function get_all_sppd($connection) {
         "jabatan" => $row["jabatan"],
         "instansi" => $row["instansi"],
         "tingkat_perjalanan_dinas" => $row["tingkat_perjalanan_dinas"],
+        "maksud_perjalanan_dinas" => $row["maksud_perjalanan_dinas"],
         "alat_angkutan" => $row["alat_angkutan"],
         "tempat_berangkat" => $row["tempat_berangkat"],
         "tempat_tujuan" => $row["tempat_tujuan"],
@@ -95,6 +96,23 @@ function insert_pengajuan_sppd($connection, $iData) {
   $nomor_SPPD = generate_nomor_SPPD($connection);
 
   $query = "INSERT INTO surat_perintah_perjalanan_dinas (hash_id, nomor_SPPD, author, nip_karyawan, nama_karyawan, pangkat, golongan, jabatan, instansi, tingkat_perjalanan_dinas, maksud_perjalanan_dinas, alat_angkutan, tempat_berangkat, tempat_tujuan, lama_dinas, tanggal_berangkat, tanggal_kembali, beban_anggaran_instansi, beban_anggaran_mata_anggaran, NIP_kepala_dinas, nama_kepala_dinas, keterangan, berangkat_dari, tujuan_satu, tujuan_dua, tanggal_berangkat_tujuan_dua, tujuan_tiga, tanggal_berangkat_tujuan_tiga) VALUES ('$hash_id', '$nomor_SPPD', '$iData[author]', '$iData[nip_karyawan]', '$iData[nama_karyawan]', '$iData[pangkat]', '$iData[golongan]', '$iData[jabatan]', '$iData[instansi]', '$iData[tingkat_perjalanan_dinas]', '$iData[maksud_perjalanan_dinas]', '$iData[alat_angkutan]', '$iData[tempat_berakat]', '$iData[tempat_tujuan]', '$iData[lama_dinas]', '$iData[tanggal_berangkat]', '$iData[tanggal_kembali]', '$iData[beban_anggaran_instansi]', '$iData[beban_anggaran_mata_anggaran]', '$iData[NIP_kepala_dinas]', '$iData[nama_kepala_dinas]', '$iData[keterangan]', '$iData[berangkat_dari]', '$iData[tujuan_satu]', '$iData[tujuan_dua]', '$iData[tanggal_berangkat_tujuan_dua]', '$iData[tujuan_tiga]', '$iData[tangal_berangkat_tujuan_tiga]')";
+
+  $result = mysqli_query($connection, $query);
+
+  $data = null;
+
+  if($result) {
+    $data["hash_id"] = $iData['hash_id'];
+    $data["nip_karyawan"] = $iData['nip_karyawan'];
+    $data["nama_karyawan"] = $iData['nama_karyawan'];
+    $data["author"] = $iData['author'];
+    $data["pangkat"] = $iData['pangkat'];
+    $data["golongan"] = $iData['golongan'];
+    $data["jabatan"] = $iData['jabatan'];
+
+    to_json($data);
+    return;
+  }
 }
 
 if(isset($_GET["todo"])) {

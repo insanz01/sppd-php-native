@@ -155,6 +155,7 @@
     const jabatan = getValue("jabatan");
     const instansi = getValue("instansi");
     const tingkat_perjalanan_dinas = getValue("tingkat_perjalanan_dinas");
+    const maksud_perjalanan_dinas = getValue("maksud_perjalanan_dinas");
     const alat_angkutan = getValue("alat_angkutan");
     const tempat_berangkat = getValue("tempat_berangkat");
     const tempat_tujuan = getValue("tempat_tujuan");
@@ -182,6 +183,7 @@
       jabatan,
       instansi,
       tingkat_perjalanan_dinas,
+      maksud_perjalanan_dinas,
       alat_angkutan,
       tempat_berangkat,
       tempat_tujuan,

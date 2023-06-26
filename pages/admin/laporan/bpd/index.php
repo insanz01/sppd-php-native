@@ -24,8 +24,11 @@
           <div class="card-body">
             <div class="row mb-3">
               <div class="col-12">
-                <a href="?page=pegawai&action=tambah" class="btn btn-primary float-right" role="button">
-                  Tambah
+                <a href="#" class="btn btn-primary" role="button">
+                  Filter Laporan
+                </a>
+                <a href="#" class="btn btn-primary" role="button">
+                  Cetak Semua
                 </a>
               </div>
             </div>
@@ -52,7 +55,7 @@
 
 <script>
   const getData = async () => {
-    return await axios.get(`<?= $base_url ?>api/pegawai.api.php?todo=find_all`).then(res => res.data);
+    return await axios.get(`<?= $base_url ?>api/bpd.api.php?todo=find_all`).then(res => res.data);
   }
 
   const renderTable = (target, data) => {
@@ -61,12 +64,20 @@
     let temp = ``;
 
     data.forEach((res, index) => {
+      let status = "initial";
+
+      if(res.status == 1) {
+        status = "diterima";
+      } else if(res.status == -1) {
+        status = "ditolak";
+      }
+
       temp += `
               <tr>
                 <td>${index + 1}</td>
                 <td>${res.nama_karyawan}</td>
                 <td>${res.nomor_SPPD}</td>
-                <td>${res.status}</td>
+                <td>${status}</td>
                 <td>
 
                 </td>

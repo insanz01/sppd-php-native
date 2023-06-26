@@ -6,8 +6,8 @@ include "../helper/helper.php";
 include "../helper/validate.php";
 require "../database/db.php";
 
-function get_all_spt($connection) {
-  $query = "SELECT * FROM surat_perintah_tugas";
+function get_all_lpd($connection) {
+  $query = "SELECT * FROM laporan_perjalanan_dinas";
 
   $result = mysqli_query($connection, $query);
 
@@ -15,32 +15,35 @@ function get_all_spt($connection) {
 
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      $temp_data = [
-        "id" => $row["id"],
-        "hash_id" => $row["hash_id"],
-        "nomor_sppd" => $row["nomor_sppd"],
-        "nip_karyawan" => $row["nip_karyawan"],
-        "nama_karyawan" => $row["nama_karyawan"],
-        "pangkat" => $row["pangkat"],
-        "golongan" => $row["golongan"],
-        "rangka_jabatan" => $row["rangka_jabatan"],
-        "tujuan" => $row["tujuan"],
-        "tanggal_kegiatan" => $row["tanggal_kegiatan"],
-        "atas_beban" => $row["atas_beban"],
-        "jabatan" => $row["jabatan"]
-      ];
+      // var_dump($row); die;
 
-      array_push($data, $temp_data);
+      // $temp_data = [
+      //   "id" => $row["id"],
+      //   "hash_id" => $row["hash_id"],
+      //   "user_id" => $row["user_id"],
+      //   "penerima_surat" => $row["penerima_surat"],
+      //   "pengirim_surat" => $row["pengirim_surat"],
+      //   "tanggal_kegiatan" => $row["tanggal_kegiatan"],
+      //   "perihal" => $row["perihal"],
+      //   "kegiatan" => $row["kegiatan"],
+      //   "waktu_pelaksanaan" => $row["waktu_pelaksanaan"],
+      //   "tempat_pelaksanaan" => $row["tempat_pelaksanaan"],
+      //   "poin_dasar" => $row["poin_dasar"],
+      //   "poin_hasil_kegiatan" => $row["poin_hasil_kegiatan"],
+      //   "poin_kesimpulan_saran" => $row["poin_kesimpulan_saran"]
+      // ];
+
+      array_push($data, $row);
     }
   }
 
   to_json($data);
 }
 
-function insert_pengajuan_spt($connection, $insertData) {
+function insert_pengajuan_lpd($connection, $insertData) {
   $hash_id = base64_encode(password_hash(time(), PASSWORD_DEFAULT));
 
-  $query = "INSERT INTO surat_perintah_tugas (hash_id, nomor_sppd, nip_karyawan, nama_karyawan, pangkat, golongan, jabatan, rangka_acara, tujuan, tanggal_kegiatan, atas_beban) VALUES ('$hash_id', '$insertData[nomor_sppd]', '$insertData[nip_karyawan]', '$insertData[nama_karyawan]', '$insertData[pangkat]', '$insertData[golongan]', '$insertData[jabatan]', '$insertData[rangka_acara]', '$insertData[tujuan]', $insertData[tanggal_kegiatan], '$insertData[atas_beban]')";
+  $query = "INSERT INTO laporan_perjalanan_dinas (hash_id, nomor_sppd, nip_karyawan, nama_karyawan, pangkat, golongan, jabatan, rangka_acara, tujuan, tanggal_kegiatan, atas_beban) VALUES ('$hash_id', '$insertData[nomor_sppd]', '$insertData[nip_karyawan]', '$insertData[nama_karyawan]', '$insertData[pangkat]', '$insertData[golongan]', '$insertData[jabatan]', '$insertData[rangka_acara]', '$insertData[tujuan]', $insertData[tanggal_kegiatan], '$insertData[atas_beban]')";
 
   $result = mysqli_query($connection, $query);
 
@@ -69,7 +72,7 @@ if(isset($_GET["todo"])) {
 
   switch($todo) {
     case "find_all":
-      get_all_spt($connection);
+      get_all_lpd($connection);
       break;
     case "save-pengajuan":
       $insertData = [
@@ -85,10 +88,10 @@ if(isset($_GET["todo"])) {
         "atas_beban" => validate_input($connection, $_POST["atas_beban"])
       ];
 
-      insert_pengajuan_spt($connection, $insertData);
+      insert_pengajuan_lpd($connection, $insertData);
       break;
     default:
-      get_all_spt($connection);
+      get_all_lpd($connection);
       break;
   }
 }
