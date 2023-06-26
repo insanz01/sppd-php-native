@@ -24,6 +24,13 @@
         include "pages/admin/pegawai/index.php";
       }
       break;
+    case "uang-harian":
+      if($action == "tambah") {
+        include "pages/admin/uang-harian/tambah.php";
+      } else {
+        include "pages/admin/uang-harian/index.php";
+      }
+      break;
     case "pengajuan-sppd":
       include "pages/admin/pengajuan/sppd/index.php";
       break;
