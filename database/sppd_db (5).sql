@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jun 2023 pada 23.41
+-- Waktu pembuatan: 27 Jun 2023 pada 00.48
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -252,6 +252,42 @@ INSERT INTO `uang_harian_perjalanan_dinas` (`id`, `nama_provinsi`, `satuan`, `be
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `uang_harian_perjalanan_dinas_dki`
+--
+
+CREATE TABLE `uang_harian_perjalanan_dinas_dki` (
+  `id` int(11) NOT NULL,
+  `uraian` varchar(100) NOT NULL,
+  `walikota` varchar(30) NOT NULL,
+  `dprd` varchar(30) NOT NULL,
+  `sekda` varchar(30) NOT NULL,
+  `asisten_sekda` varchar(30) NOT NULL,
+  `administrator` varchar(30) NOT NULL,
+  `pengawas` varchar(30) NOT NULL,
+  `pelaksana` varchar(30) NOT NULL,
+  `keterangan` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `uang_taxi_perjalanan_dinas`
+--
+
+CREATE TABLE `uang_taxi_perjalanan_dinas` (
+  `id` int(11) NOT NULL,
+  `nama_provinsi` varchar(50) NOT NULL,
+  `satuan` varchar(20) NOT NULL,
+  `besaran` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
@@ -328,6 +364,18 @@ ALTER TABLE `uang_harian_perjalanan_dinas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `uang_harian_perjalanan_dinas_dki`
+--
+ALTER TABLE `uang_harian_perjalanan_dinas_dki`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `uang_taxi_perjalanan_dinas`
+--
+ALTER TABLE `uang_taxi_perjalanan_dinas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -384,6 +432,18 @@ ALTER TABLE `surat_perintah_tugas`
 --
 ALTER TABLE `uang_harian_perjalanan_dinas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `uang_harian_perjalanan_dinas_dki`
+--
+ALTER TABLE `uang_harian_perjalanan_dinas_dki`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `uang_taxi_perjalanan_dinas`
+--
+ALTER TABLE `uang_taxi_perjalanan_dinas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
