@@ -60,7 +60,7 @@
             <!-- <li class="nav-header">MASTER DATA HARGA</li> -->
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="fas fa-power-off nav-icon"></i>
+                <i class="fas fa-globe-asia nav-icon"></i>
                 <p>
                   MASTER DATA
                 </p>
@@ -136,6 +136,17 @@
                 <i class="nav-icon fas fa-envelope"></i>
                 <p>
                   PENYERAHAN BPD
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-header">PENGATURAN LAINNYA</li>
+            <li class="nav-item">
+              <a href="?page=uang-harian" class="nav-link">
+                <i class="nav-icon fas fa-dollar-sign"></i>
+                <p>
+                  UANG HARIAN
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
