@@ -83,13 +83,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=pengajuan-spt" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>SPT</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=pengajuan-sppd" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>SPPD</p>
                   </a>
@@ -105,25 +105,25 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=laporan-spt" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>SPT</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=laporan-sppd" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>SPPD</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=laporan-bpd" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>BPD</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="?page=login-administrator" class="nav-link">
+                  <a href="?page=laporan-lpd" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>LPD</p>
                   </a>
@@ -132,7 +132,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="?page=logout" class="nav-link">
+              <a href="?page=penyerahan-bpd" class="nav-link">
                 <i class="nav-icon fas fa-envelope"></i>
                 <p>
                   PENYERAHAN BPD

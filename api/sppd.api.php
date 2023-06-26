@@ -6,7 +6,42 @@ include "../helper/helper.php";
 include "../helper/validate.php";
 require "../database/db.php";
 
-function get_all_karyawan($connection) {
+function generate_nomor_SPPD($connection) {
+  $query = "SELECT id FROM surat_perintah_perjalanan_dinas ORDER BY id DESC LIMIT 1";
+
+  $result = mysqli_query($connection, $query);
+
+  $exist_sppd = [];
+
+  if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      $exist_sppd["id"] = $row["id"];
+    }
+  }
+
+  $nomor_id = 0;
+  if($exist_sppd) {
+    $nomor_id = $exist_sppd['id'];
+  }
+
+  $tahun = date("Y", time());
+  $bulan = date("m", time());
+
+  $bulan_romawi = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
+  $next_number = (string)($nomor_id + 1);
+  strlen($next_number);
+  
+  $nomor = "";
+  for($i = 0; $i < (3 - $next_number); $i++) {
+    $nomor += "0";
+  }
+
+  $nomor += $next_number;
+
+  return "12.$nomor/DKP3-KB/$bulan_rowawi[$bulan]/$tahun";
+}
+
+function get_all_sppd($connection) {
   $query = "SELECT * FROM karyawan";
 
   $result = mysqli_query($connection, $query);
@@ -31,26 +66,14 @@ function get_all_karyawan($connection) {
   to_json($data);
 }
 
-function insert_karyawan($connection, $insertData) {
-  $user_id = $_SESSION['SESS_SPPD_USER_ID'];
+function insert_pengajuan_sppd($connection, $insertData) {
+  $hash_id = password_hash(time(), PASSWORD_DEFAULT);
+  $hash_id = base64_encode($hash_id);
+  
+  $nomor_SPPD = generate_nomor_SPPD($connection);
 
-  $query = "INSERT INTO karyawan (user_id, NIP, nama, email, nomor_hp, alamat, jabatan) VALUES ($user_id, '$insertData[NIP]', '$insertData[nama]', '$insertData[email]', '$insertData[nomor_hp]', '$insertData[alamat]', '$insertData[jabatan]')";
 
-  $result = mysqli_query($connection, $query);
-
-  $data = null;
-
-  if($result) {
-    $data["NIP"] = $insertData['NIP'];
-    $data["nama"] = $insertData['nama'];
-    $data["email"] = $insertData['email'];
-    $data["nomor_hp"] = $insertData['nomor_hp'];
-    $data["alamat"] = $insertData['alamat'];
-    $data["jabatan"] = $insertData['jabatan'];
-
-    to_json($data);
-    return;
-  }
+  $query = "INSERT INTO karyawan (user_id, NIP, nama, email, nomor_hp, alamat, jabatan) VALUES ()";
 }
 
 if(isset($_GET["todo"])) {
@@ -70,7 +93,7 @@ if(isset($_GET["todo"])) {
         "jabatan" => validate_input($connection, $_POST["jabatan"])
       ];
 
-      insert_karyawan($connection, $insertData);
+      insert_pengajuan_sppd($connection, $insertData);
       break;
     default:
       get_all_karyawan($connection);
