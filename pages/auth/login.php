@@ -1,5 +1,5 @@
 <?php
-  include "config/config.php";
+  // include "config/config.php";
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Harga Pangan Pokok | Log in</title>
+  <title>SPPD | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,7 +35,7 @@
 
         <form action="#" onsubmit="await login(this)" method="post">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="12345XX" name="username" id="username">
+            <input type="text" class="form-control" placeholder="Username" name="username" id="username">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "harga_pangan";
+$dbname = "sppd_db";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connection) {

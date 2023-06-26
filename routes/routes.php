@@ -11,144 +11,22 @@
 
   switch($page) {
     case "dashboard":
-      if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
-        include "pages/public/index.php";
+      if(empty($_SESSION["SESS_SPPD_LOGIN"])) {
+        include "pages/auth/login.php";
       } else {
         include "pages/admin/index.php";
       }
       break;
-    case "harga-publik":
-      include "pages/public/index.php";
-      break;
-    case "harga-eceran-publik":
-      include "pages/public/harga/eceran.php";
-      break;
-    case "harga-grosir-publik":
-      include "pages/public/harga/grosir.php";
-      break;
-    case "harga-nasional/publik":
-      include "pages/public/harga/nasional.php";
-      break;
-    case "stok-publik":
-      include "pages/public/stok.php";
-      break;
-    case "agenda-publik":
-      include "pages/public/agenda.php";
-      break;
-    case "komoditas":
+    case "pegawai":
       if($action == "tambah") {
-        include "pages/admin/komoditas/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          $id = $_GET["id"];
-          
-          include "pages/admin/komoditas/edit.php";
-        } else {
-          include "pages/admin/komoditas/index.php";
-        }
+        include "pages/admin/pegawai/tambah.php";
       } else {
-        include "pages/admin/komoditas/index.php";
-      }
-      break;
-    case "eceran":
-      if($action == "tambah") {
-        include "pages/admin/harga/eceran/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          // $_GET["id"];
-          
-          include "pages/admin/harga/eceran/edit.php";
-        } else {
-          include "pages/admin/harga/eceran/index.php";
-        }
-      } else {
-        include "pages/admin/harga/eceran/index.php";
-      }
-      break;
-    case "grosir":
-      if($action == "tambah") {
-        include "pages/admin/harga/grosir/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          $id = $_GET["id"];
-          
-          include "pages/admin/harga/grosir/edit.php";
-        } else {
-          include "pages/admin/harga/grosir/index.php";
-        }
-      } else {
-        include "pages/admin/harga/grosir/index.php";
-      }
-      break;
-    case "nasional":
-      if($action == "tambah") {
-        include "pages/admin/harga/nasional/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          $id = $_GET["id"];
-          
-          include "pages/admin/harga/nasional/edit.php";
-        } else {
-          include "pages/admin/harga/nasional/index.php";
-        }
-      } else {
-        include "pages/admin/harga/nasional/index.php";
-      }
-      break;
-    case "distributor":
-      if($action == "tambah") {
-        include "pages/admin/harga/distributor/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          $id = $_GET["id"];
-          
-          include "pages/admin/harga/distributor/edit.php";
-        } else {
-          include "pages/admin/harga/distributor/index.php";
-        }
-      } else {
-        include "pages/admin/harga/distributor/index.php";
-      }
-      break;
-    case "produsen":
-      if($action == "tambah") {
-        include "pages/admin/harga/produsen/tambah.php";
-      } else if($action == "edit") {
-        if(isset($_GET["id"])) {
-          $id = $_GET["id"];
-          
-          include "pages/admin/harga/produsen/edit.php";
-        } else {
-          include "pages/admin/harga/produsen/index.php";
-        }
-      } else {
-        include "pages/admin/harga/produsen/index.php";
-      }
-      break;
-    case "stok":
-      if($action == "tambah") {
-        include "pages/admin/stok/tambah.php";
-      } else {
-        include "pages/admin/stok/index.php";
-      }
-      break;
-    case "permintaan":
-      if($action == "tambah") {
-        include "pages/admin/permintaan/tambah.php";
-      } else {
-        include "pages/admin/permintaan/index.php";
-      }
-      break;
-    case "inflasi":
-      if($action == "tambah") {
-        include "pages/admin/inflasi/tambah.php";
-      } else {
-        include "pages/admin/inflasi/index.php";
+        include "pages/admin/pegawai/index.php";
       }
       break;
     default:
       if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
-        include "pages/public/index.php";
+        include "pages/auth/login.php";
       } else {
         include "pages/admin/index.php";
       }

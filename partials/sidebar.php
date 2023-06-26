@@ -3,9 +3,9 @@
   $role_id = 0;
   $role_name = "Publik";
 
-  if(isset($_SESSION["SESS_HARPAN_ROLE_ID"])) {
-    $role_id = $_SESSION["SESS_HARPAN_ROLE_ID"];
-    $role_name = $_SESSION["SESS_HARPAN_ROLE"];
+  if(isset($_SESSION["SESS_SPPD_ROLE_ID"])) {
+    $role_id = $_SESSION["SESS_SPPD_ROLE_ID"];
+    $role_name = $_SESSION["SESS_SPPD_ROLE"];
   }
 ?>
 
@@ -46,202 +46,101 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <?php if($role_id == 0): ?>
-            <!-- <li class="nav-item">
-              <a href="?page=harga-publik" class="nav-link">
+
+          <?php if($role_id != 0): ?>
+            <li class="nav-item">
+              <a href="?page=dashboard" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
-                  Dashboard
+                  DASHBOARD
+                  <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
-            </li> -->
+            </li>
+            <!-- <li class="nav-header">MASTER DATA HARGA</li> -->
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="fas fa-home nav-icon"></i>
+                <i class="fas fa-power-off nav-icon"></i>
                 <p>
-                  Dashboard
-                  <!-- <i class="fas fa-angle-left right"></i> -->
+                  MASTER DATA
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="?page=harga-eceran-publik" class="nav-link">
+                  <a href="?page=pegawai" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Harga Eceran</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="?page=harga-grosir-publik" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Harga Grosir</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="?page=harga-nasional-publik" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Harga Nasional</p>
+                    <p>Pegawai</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="?page=stok-publik" class="nav-link">
-                <i class="nav-icon fas fa-box"></i>
-                <p>
-                  Data Ketersediaan
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=agenda-publik" class="nav-link">
-                <i class="nav-icon fas fa-list"></i>
-                <p>
-                  Agenda Pasar Murah
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="fas fa-power-off nav-icon"></i>
+                <i class="fas fa-book nav-icon"></i>
                 <p>
-                  Login
-                  <!-- <i class="fas fa-angle-left right"></i> -->
+                  PENGAJUAN
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="?page=login-administrator" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Login Administrator</p>
+                    <p>SPT</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="?page=login-pimpinan" class="nav-link">
+                  <a href="?page=login-administrator" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Login Pimpinan</p>
+                    <p>SPPD</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <!-- <li class="nav-item">
-              <a href="?page=login" class="nav-link">
-                <i class="nav-icon fas fa-power-off"></i>
-                <p>
-                  Login
-                </p>
-              </a>
-            </li> -->
-          <?php endif; ?>
-
-          <?php if($role_id != 0): ?>
             <li class="nav-item">
-              <a href="?page=dashboard" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <a href="#" class="nav-link">
+                <i class="fas fa-book nav-icon"></i>
                 <p>
-                  Dashboard
-                  <!-- <span class="right badge badge-danger">New</span> -->
+                  LAPORAN
                 </p>
               </a>
-            </li>
-            <li class="nav-header">MASTER DATA HARGA</li>
-            <li class="nav-item">
-              <a href="?page=eceran" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Harga Eceran
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=grosir" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Harga Grosir
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=nasional" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Harga Nasional
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=distributor" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Harga Distributor
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=produsen" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Harga Produsen
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="?page=login-administrator" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>SPT</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=login-administrator" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>SPPD</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=login-administrator" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>BPD</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=login-administrator" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>LPD</p>
+                  </a>
+                </li>
+              </ul>
             </li>
 
-            <li class="nav-header">MASTER DATA</li>
             <li class="nav-item">
-              <a href="?page=komoditas" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
+              <a href="?page=logout" class="nav-link">
+                <i class="nav-icon fas fa-envelope"></i>
                 <p>
-                  Data Komoditas
+                  PENYERAHAN BPD
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="?page=stok" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Ketersediaan
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=permintaan" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Permintaan
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="?page=inflasi" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Data Inflasi
-                  <!-- <span class="right badge badge-danger">New</span> -->
-                </p>
-              </a>
-            </li>
-
-            <?php if($role_id == 1): ?>
-              <!-- <li class="nav-header">BAGIAN PIMPINAN</li>
-              <li class="nav-item">
-                <a href="?page=dashboard" class="nav-link">
-                  <i class="nav-icon fas fa-book"></i>
-                  <p>
-                    Verifikasi Data
-                  </p>
-                </a>
-              </li> -->
-            <?php endif; ?>
+            
 
             <li class="nav-header">LAINNYA</li>
             <li class="nav-item">
