@@ -57,6 +57,23 @@ function insert_uhpd($connection, $insertData) {
   }
 }
 
+function insert_uhpd_dki($connection, $insertData) {
+  $hash_id = base64_encode(password_hash(time(), PASSWORD_DEFAULT));
+
+  $query = "INSERT INTO uang_harian_perjalanan_dinas_dki (uraian, walikota, dprd, sekda, asisten_sekda, administrator, pengawas, pelaksana, keterangan) VALUES ('$insertData[uraian]', '$insertData[walikota]', $insertData[dprd], $insertData[sekda], $insertData[asisten_sekda], $insertData[administrator], $insertData[pengawas], $insertData[pelaksana], $insertData[keterangan])";
+
+  $result = mysqli_query($connection, $query);
+
+  $data = null;
+
+  if($result) {
+    $data = $insertData;
+
+    to_json($data);
+    return;
+  }
+}
+
 if(isset($_GET["todo"])) {
   $todo = $_GET["todo"];
 
@@ -74,6 +91,21 @@ if(isset($_GET["todo"])) {
       ];
 
       insert_uhpd($connection, $insertData);
+      break;
+    case "save_dki":
+      $insertData = [
+        "uraian" => validate_input($connection, $_POST["uraian"]),
+        "walikota" => validate_input($connection, $_POST["walikota"]),
+        "dprd" => validate_input($connection, $_POST["dprd"]),
+        "sekda" => validate_input($connection, $_POST["sekda"]),
+        "asisten_sekda" => validate_input($connection, $_POST["asisten_sekda"]),
+        "administrator" => validate_input($connection, $_POST["administrator"]),
+        "pengawas" => validate_input($connection, $_POST["pengawas"]),
+        "pelaksana" => validate_input($connection, $_POST["pelaksana"]),
+        "keterangan" => validate_input($connection, $_POST["keterangan"])
+      ];
+
+      insert_uhpd_dki($connection, $insertData);
       break;
     default:
       get_all_uhpd($connection);

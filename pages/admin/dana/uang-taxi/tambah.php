@@ -77,7 +77,7 @@
     const result = await saveData(data);
 
     if(result.status) {
-      window.location.href = `<?= $base_url ?>index.php?page=uang-harian`
+      window.location.href = `<?= $base_url ?>index.php?page=uang-taxi`
     }
   }
 </script>
