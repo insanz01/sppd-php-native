@@ -6,8 +6,8 @@ include "../helper/helper.php";
 include "../helper/validate.php";
 require "../database/db.php";
 
-function get_all_uhpd($connection) {
-  $query = "SELECT * FROM uang_harian_perjalanan_dinas";
+function get_all_utpd($connection) {
+  $query = "SELECT * FROM uang_taxi_perjalanan_dinas";
 
   $result = mysqli_query($connection, $query);
 
@@ -22,26 +22,10 @@ function get_all_uhpd($connection) {
   to_json($data);
 }
 
-function get_all_uhpd_dki($connection) {
-  $query = "SELECT * FROM uang_harian_perjalanan_dinas_dki";
-
-  $result = mysqli_query($connection, $query);
-
-  $data = [];
-
-  if(mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-      array_push($data, $row);
-    }
-  }
-
-  to_json($data);
-}
-
-function insert_uhpd($connection, $insertData) {
+function insert_utpd($connection, $insertData) {
   $hash_id = base64_encode(password_hash(time(), PASSWORD_DEFAULT));
 
-  $query = "INSERT INTO uang_harian_perjalanan_dinas (nama_provinsi, satuan, besaran) VALUES ('$insertData[nama_provinsi]', '$insertData[satuan]', $insertData[besaran])";
+  $query = "INSERT INTO uang_taxi_perjalanan_dinas (nama_provinsi, satuan, besaran) VALUES ('$insertData[nama_provinsi]', '$insertData[satuan]', $insertData[besaran])";
 
   $result = mysqli_query($connection, $query);
 
@@ -62,10 +46,8 @@ if(isset($_GET["todo"])) {
 
   switch($todo) {
     case "find_all":
-      get_all_uhpd($connection);
+      get_all_utpd($connection);
       break;
-    case "find_all_dki":
-      get_all_uhpd_dki($connection);
     case "save":
       $insertData = [
         "nama_provinsi" => validate_input($connection, $_POST["nama_provinsi"]),
@@ -73,10 +55,10 @@ if(isset($_GET["todo"])) {
         "besaran" => validate_input($connection, $_POST["besaran"])
       ];
 
-      insert_uhpd($connection, $insertData);
+      insert_utpd($connection, $insertData);
       break;
     default:
-      get_all_uhpd($connection);
+      get_all_utpd($connection);
       break;
   }
 }

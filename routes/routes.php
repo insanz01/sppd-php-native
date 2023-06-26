@@ -26,9 +26,23 @@
       break;
     case "uang-harian":
       if($action == "tambah") {
-        include "pages/admin/uang-harian/tambah.php";
+        include "pages/admin/dana/uang-harian/tambah.php";
       } else {
-        include "pages/admin/uang-harian/index.php";
+        include "pages/admin/dana/uang-harian/index.php";
+      }
+      break;
+    case "uang-harian-dki":
+      if($action == "tambah") {
+        include "pages/admin/dana/uang-harian-dki/tambah.php";
+      } else {
+        include "pages/admin/dana/uang-harian-dki/index.php";
+      }
+      break;
+    case "uang-taxi":
+      if($action == "tambah") {
+        include "pages/admin/dana/uang-taxi/tambah.php";
+      } else {
+        include "pages/admin/dana/uang-taxi/index.php";
       }
       break;
     case "pengajuan-sppd":

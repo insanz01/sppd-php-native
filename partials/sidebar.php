@@ -143,13 +143,38 @@
 
             <li class="nav-header">PENGATURAN LAINNYA</li>
             <li class="nav-item">
-              <a href="?page=uang-harian" class="nav-link">
-                <i class="nav-icon fas fa-dollar-sign"></i>
+              <a href="#" class="nav-link">
+                <i class="fas fa-dollar-sign nav-icon"></i>
                 <p>
-                  UANG HARIAN
-                  <!-- <span class="right badge badge-danger">New</span> -->
+                  DANA PERJALANAN DINAS
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="?page=uang-harian" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>UANG HARIAN</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=uang-taxi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>TAXI</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="?page=uang-harian-dki" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>UANG HARIAN (DKI)</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="?page=laporan-lpd" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>LPD</p>
+                  </a>
+                </li> -->
+              </ul>
             </li>
             
 
