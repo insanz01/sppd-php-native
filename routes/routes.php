@@ -66,6 +66,9 @@
     case "penyerahan-bpd":
       include "pages/admin/penyerahan/bpd/index.php";
       break;
+    case "statistik-perjalanan":
+      include "pages/admin/statistik/pegawai-dinas/index.php";
+      break;
     default:
       if(empty($_SESSION["SESS_HARPAN_LOGIN"])) {
         include "pages/auth/login.php";

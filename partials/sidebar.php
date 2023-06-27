@@ -176,6 +176,17 @@
                 </li> -->
               </ul>
             </li>
+
+            <li class="nav-header">STATISTIK</li>
+            <li class="nav-item">
+              <a href="?page=statistik-perjalanan" class="nav-link">
+                <i class="nav-icon fas fa-chart-bar"></i>
+                <p>
+                  TOTAL PERJALANAN
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
             
 
             <li class="nav-header">LAINNYA</li>
