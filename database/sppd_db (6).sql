@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jun 2023 pada 00.48
+-- Waktu pembuatan: 27 Jun 2023 pada 05.00
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -201,7 +201,7 @@ CREATE TABLE `surat_perintah_perjalanan_dinas` (
 --
 
 INSERT INTO `surat_perintah_perjalanan_dinas` (`id`, `hash_id`, `nomor_SPPD`, `author`, `nip_karyawan`, `nama_karyawan`, `pangkat`, `golongan`, `jabatan`, `instansi`, `tingkat_perjalanan_dinas`, `maksud_perjalanan_dinas`, `alat_angkutan`, `tempat_berangkat`, `tempat_tujuan`, `lama_dinas`, `tanggal_berangkat`, `tanggal_kembali`, `beban_anggaran_instansi`, `beban_anggaran_mata_anggaran`, `NIP_kepala_dinas`, `nama_kepala_dinas`, `keterangan`, `berangkat_dari`, `tujuan_satu`, `tujuan_dua`, `tanggal_berangkat_tujuan_dua`, `tujuan_tiga`, `tanggal_berangkat_tujuan_tiga`, `created_at`, `updated_at`) VALUES
-(1, 'JDJ5JDEwJG1wZTk1QUV1MjF4NlRkMVo3L0w1Mk9tWms0SnpBTXFWRU9IVFN5WWJGSERjSEx5Q05nRUt1', '12.001/DKP3-KB/II/2023', 'sdfadfa', 'asfasdfa', 'asdfadsfa', 'asdfasdfsadfa', 'asdfad', 'asdfadfsa', 'asdfasdf', 'fsadfa', 'sadfsadf', 'asdfadf', 'sdfadfa', 'sfasdf', '12312', '2023-02-12', '2023-02-15', '1221', 'fasdfaweraewr', '', '', 'asdfsadasdf', 'Banjarmasin', 'Singapura', NULL, NULL, NULL, NULL, '2023-02-01 10:58:58', '2023-02-01 10:58:58'),
+(1, 'JDJ5JDEwJG1wZTk1QUV1MjF4NlRkMVo3L0w1Mk9tWms0SnpBTXFWRU9IVFN5WWJGSERjSEx5Q05nRUt1', '12.001/DKP3-KB/II/2023', 'sdfadfa', '1600018015', 'asdfadsfa', 'asdfasdfsadfa', 'asdfad', 'asdfadfsa', 'asdfasdf', 'fsadfa', 'sadfsadf', 'asdfadf', 'sdfadfa', 'sfasdf', '12312', '2023-02-12', '2023-02-15', '1221', 'fasdfaweraewr', '', '', 'asdfsadasdf', 'Banjarmasin', 'Singapura', NULL, NULL, NULL, NULL, '2023-02-01 10:58:58', '2023-02-01 10:58:58'),
 (2, 'JDJ5JDEwJGx6NzJEVHczL0FsSjVab2tyLlVPYk9BY2FPVFltRXNRRG1ERVNjaGhMZWQ0MjllNDB0cDBL', '12.002/DKP3-KB/II/2023', 'Kambing Mawon', '1600018015', 'Muhammad Insan Kamil', 'Jendral', 'Golkar', 'Research and Development', 'IT', 'Ga ngerti', 'Healing', 'Pesawat', 'Banjarmasin', 'Singapura', '5', '2023-02-19', '2023-02-24', '50000', 'Rupiah', '', '', 'Aku Cinta Rupiah', 'Banjarmasin', 'Singapura', '', '0000-00-00', '', '0000-00-00', '2023-02-19 17:33:39', '2023-02-19 17:33:39');
 
 -- --------------------------------------------------------
